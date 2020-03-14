@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://db.data.model.nathanormond.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://db.data.model.nathanormond.com" xmlns:intf="http://db.data.model.nathanormond.com" xmlns:tns1="http://sql.java" xmlns:tns2="http://structures.data.model.nathanormond.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://db.data.model.nathanormond.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://structures.data.model.nathanormond.com"/>
+   <import namespace="http://sql.java"/>
+   <element name="getAllResults">
+    <complexType/>
+   </element>
+   <element name="getAllResultsResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllResultsReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="getTableName">
+    <complexType/>
+   </element>
+   <element name="getTableNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getTableNameReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNextTypeData">
+    <complexType>
+     <sequence>
+      <element name="in0" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNextTypeDataResponse">
+    <complexType>
+     <sequence>
+      <element name="getNextTypeDataReturn" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getResultByID">
+    <complexType>
+     <sequence>
+      <element name="in0" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getResultByIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getResultByIDReturn" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFilm">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getFilmResponse">
+    <complexType>
+     <sequence>
+      <element name="getFilmReturn" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertFilmResponse">
+    <complexType>
+     <sequence>
+      <element name="insertFilmReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sanitisedInsertValues">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="columns" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="values" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sanitisedInsertValuesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="sanitisedInsertValuesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getResultsForCondition">
+    <complexType>
+     <sequence>
+      <element name="condition" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getResultsForConditionResponse">
+    <complexType>
+     <sequence>
+      <element name="getResultsForConditionReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUser">
+    <complexType/>
+   </element>
+   <element name="getUserResponse">
+    <complexType>
+     <sequence>
+      <element name="getUserReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPassword">
+    <complexType/>
+   </element>
+   <element name="getPasswordResponse">
+    <complexType>
+     <sequence>
+      <element name="getPasswordReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUrl">
+    <complexType/>
+   </element>
+   <element name="getUrlResponse">
+    <complexType>
+     <sequence>
+      <element name="getUrlReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setPassword">
+    <complexType>
+     <sequence>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setPasswordResponse">
+    <complexType/>
+   </element>
+   <element name="setUser">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setUserResponse">
+    <complexType/>
+   </element>
+   <element name="deleteData">
+    <complexType>
+     <sequence>
+      <element name="tableName" type="xsd:string"/>
+      <element name="columnName" type="xsd:string"/>
+      <element name="value" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteDataResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteDataReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="valueContainsSQL">
+    <complexType>
+     <sequence>
+      <element name="value" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="valueContainsSQLResponse">
+    <complexType>
+     <sequence>
+      <element name="valueContainsSQLReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPortNum">
+    <complexType/>
+   </element>
+   <element name="getPortNumResponse">
+    <complexType>
+     <sequence>
+      <element name="getPortNumReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setPortNum">
+    <complexType>
+     <sequence>
+      <element name="portNum" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setPortNumResponse">
+    <complexType/>
+   </element>
+   <element name="updateURL">
+    <complexType/>
+   </element>
+   <element name="updateURLResponse">
+    <complexType/>
+   </element>
+   <element name="getCountInTable">
+    <complexType/>
+   </element>
+   <element name="getCountInTableResponse">
+    <complexType>
+     <sequence>
+      <element name="getCountInTableReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="executeTypeQuery">
+    <complexType>
+     <sequence>
+      <element name="query" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="executeTypeQueryResponse">
+    <complexType>
+     <sequence>
+      <element name="executeTypeQueryReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertToTable">
+    <complexType>
+     <sequence>
+      <element name="tableName" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="columns" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="values" type="xsd:string"/>
+      <element name="significantValueColumn" type="xsd:string"/>
+      <element name="significantValue" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertToTableResponse">
+    <complexType/>
+   </element>
+   <element name="isValueInDB">
+    <complexType>
+     <sequence>
+      <element name="tableName" type="xsd:string"/>
+      <element name="columnName" type="xsd:string"/>
+      <element name="value" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isValueInDBResponse">
+    <complexType>
+     <sequence>
+      <element name="isValueInDBReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHighestValueInDB">
+    <complexType>
+     <sequence>
+      <element name="tableName" type="xsd:string"/>
+      <element name="columnName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHighestValueInDBResponse">
+    <complexType>
+     <sequence>
+      <element name="getHighestValueInDBReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getNetworkAddress">
+    <complexType/>
+   </element>
+   <element name="getNetworkAddressResponse">
+    <complexType>
+     <sequence>
+      <element name="getNetworkAddressReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setNetworkAddress">
+    <complexType>
+     <sequence>
+      <element name="networkAddress" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setNetworkAddressResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getHighestValueInDBRequest">
+
+      <wsdl:part element="impl:getHighestValueInDB" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getResultsForConditionResponse">
+
+      <wsdl:part element="impl:getResultsForConditionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setPasswordRequest">
+
+      <wsdl:part element="impl:setPassword" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="executeTypeQueryResponse">
+
+      <wsdl:part element="impl:executeTypeQueryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCountInTableRequest">
+
+      <wsdl:part element="impl:getCountInTable" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateURLResponse">
+
+      <wsdl:part element="impl:updateURLResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCountInTableResponse">
+
+      <wsdl:part element="impl:getCountInTableResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setNetworkAddressResponse">
+
+      <wsdl:part element="impl:setNetworkAddressResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPortNumRequest">
+
+      <wsdl:part element="impl:getPortNum" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDataResponse">
+
+      <wsdl:part element="impl:deleteDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNextTypeDataResponse">
+
+      <wsdl:part element="impl:getNextTypeDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setPortNumRequest">
+
+      <wsdl:part element="impl:setPortNum" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertFilmResponse">
+
+      <wsdl:part element="impl:insertFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPortNumResponse">
+
+      <wsdl:part element="impl:getPortNumResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNetworkAddressRequest">
+
+      <wsdl:part element="impl:getNetworkAddress" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserRequest">
+
+      <wsdl:part element="impl:getUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTableNameRequest">
+
+      <wsdl:part element="impl:getTableName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateURLRequest">
+
+      <wsdl:part element="impl:updateURL" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNetworkAddressResponse">
+
+      <wsdl:part element="impl:getNetworkAddressResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHighestValueInDBResponse">
+
+      <wsdl:part element="impl:getHighestValueInDBResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNextTypeDataRequest">
+
+      <wsdl:part element="impl:getNextTypeData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUrlResponse">
+
+      <wsdl:part element="impl:getUrlResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isValueInDBRequest">
+
+      <wsdl:part element="impl:isValueInDB" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sanitisedInsertValuesRequest">
+
+      <wsdl:part element="impl:sanitisedInsertValues" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sanitisedInsertValuesResponse">
+
+      <wsdl:part element="impl:sanitisedInsertValuesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setUserResponse">
+
+      <wsdl:part element="impl:setUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDataRequest">
+
+      <wsdl:part element="impl:deleteData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="executeTypeQueryRequest">
+
+      <wsdl:part element="impl:executeTypeQuery" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPasswordRequest">
+
+      <wsdl:part element="impl:getPassword" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setUserRequest">
+
+      <wsdl:part element="impl:setUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertToTableRequest">
+
+      <wsdl:part element="impl:insertToTable" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTableNameResponse">
+
+      <wsdl:part element="impl:getTableNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPasswordResponse">
+
+      <wsdl:part element="impl:getPasswordResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setPasswordResponse">
+
+      <wsdl:part element="impl:setPasswordResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllResultsRequest">
+
+      <wsdl:part element="impl:getAllResults" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFilmResponse">
+
+      <wsdl:part element="impl:getFilmResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getResultByIDResponse">
+
+      <wsdl:part element="impl:getResultByIDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getFilmRequest">
+
+      <wsdl:part element="impl:getFilm" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="valueContainsSQLRequest">
+
+      <wsdl:part element="impl:valueContainsSQL" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllResultsResponse">
+
+      <wsdl:part element="impl:getAllResultsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getResultsForConditionRequest">
+
+      <wsdl:part element="impl:getResultsForCondition" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertToTableResponse">
+
+      <wsdl:part element="impl:insertToTableResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserResponse">
+
+      <wsdl:part element="impl:getUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUrlRequest">
+
+      <wsdl:part element="impl:getUrl" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="valueContainsSQLResponse">
+
+      <wsdl:part element="impl:valueContainsSQLResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setPortNumResponse">
+
+      <wsdl:part element="impl:setPortNumResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getResultByIDRequest">
+
+      <wsdl:part element="impl:getResultByID" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isValueInDBResponse">
+
+      <wsdl:part element="impl:isValueInDBResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setNetworkAddressRequest">
+
+      <wsdl:part element="impl:setNetworkAddress" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FilmDAO">
+
+      <wsdl:operation name="getAllResults">
+
+         <wsdl:input message="impl:getAllResultsRequest" name="getAllResultsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllResultsResponse" name="getAllResultsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTableName">
+
+         <wsdl:input message="impl:getTableNameRequest" name="getTableNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTableNameResponse" name="getTableNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNextTypeData">
+
+         <wsdl:input message="impl:getNextTypeDataRequest" name="getNextTypeDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNextTypeDataResponse" name="getNextTypeDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getResultByID">
+
+         <wsdl:input message="impl:getResultByIDRequest" name="getResultByIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getResultByIDResponse" name="getResultByIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFilm">
+
+         <wsdl:input message="impl:getFilmRequest" name="getFilmRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getFilmResponse" name="getFilmResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+
+      <wsdl:operation name="sanitisedInsertValues">
+
+         <wsdl:input message="impl:sanitisedInsertValuesRequest" name="sanitisedInsertValuesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sanitisedInsertValuesResponse" name="sanitisedInsertValuesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getResultsForCondition">
+
+         <wsdl:input message="impl:getResultsForConditionRequest" name="getResultsForConditionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getResultsForConditionResponse" name="getResultsForConditionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUser">
+
+         <wsdl:input message="impl:getUserRequest" name="getUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUserResponse" name="getUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPassword">
+
+         <wsdl:input message="impl:getPasswordRequest" name="getPasswordRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPasswordResponse" name="getPasswordResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUrl">
+
+         <wsdl:input message="impl:getUrlRequest" name="getUrlRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUrlResponse" name="getUrlResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setPassword">
+
+         <wsdl:input message="impl:setPasswordRequest" name="setPasswordRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setPasswordResponse" name="setPasswordResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setUser">
+
+         <wsdl:input message="impl:setUserRequest" name="setUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setUserResponse" name="setUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteData">
+
+         <wsdl:input message="impl:deleteDataRequest" name="deleteDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteDataResponse" name="deleteDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="valueContainsSQL">
+
+         <wsdl:input message="impl:valueContainsSQLRequest" name="valueContainsSQLRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:valueContainsSQLResponse" name="valueContainsSQLResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPortNum">
+
+         <wsdl:input message="impl:getPortNumRequest" name="getPortNumRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPortNumResponse" name="getPortNumResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setPortNum">
+
+         <wsdl:input message="impl:setPortNumRequest" name="setPortNumRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setPortNumResponse" name="setPortNumResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateURL">
+
+         <wsdl:input message="impl:updateURLRequest" name="updateURLRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateURLResponse" name="updateURLResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCountInTable">
+
+         <wsdl:input message="impl:getCountInTableRequest" name="getCountInTableRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCountInTableResponse" name="getCountInTableResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="executeTypeQuery">
+
+         <wsdl:input message="impl:executeTypeQueryRequest" name="executeTypeQueryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:executeTypeQueryResponse" name="executeTypeQueryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertToTable">
+
+         <wsdl:input message="impl:insertToTableRequest" name="insertToTableRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertToTableResponse" name="insertToTableResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isValueInDB">
+
+         <wsdl:input message="impl:isValueInDBRequest" name="isValueInDBRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isValueInDBResponse" name="isValueInDBResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getHighestValueInDB">
+
+         <wsdl:input message="impl:getHighestValueInDBRequest" name="getHighestValueInDBRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getHighestValueInDBResponse" name="getHighestValueInDBResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNetworkAddress">
+
+         <wsdl:input message="impl:getNetworkAddressRequest" name="getNetworkAddressRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNetworkAddressResponse" name="getNetworkAddressResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setNetworkAddress">
+
+         <wsdl:input message="impl:setNetworkAddressRequest" name="setNetworkAddressRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setNetworkAddressResponse" name="setNetworkAddressResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FilmDAOSoapBinding" type="impl:FilmDAO">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getAllResults">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllResultsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllResultsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTableName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTableNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTableNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNextTypeData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNextTypeDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNextTypeDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getResultByID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getResultByIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getResultByIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getFilm">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getFilmRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getFilmResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sanitisedInsertValues">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sanitisedInsertValuesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sanitisedInsertValuesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getResultsForCondition">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getResultsForConditionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getResultsForConditionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPassword">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPasswordRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPasswordResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUrl">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUrlRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUrlResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setPassword">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setPasswordRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setPasswordResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="valueContainsSQL">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="valueContainsSQLRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="valueContainsSQLResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPortNum">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPortNumRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPortNumResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setPortNum">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setPortNumRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setPortNumResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateURL">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateURLRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateURLResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCountInTable">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCountInTableRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCountInTableResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="executeTypeQuery">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="executeTypeQueryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="executeTypeQueryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertToTable">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertToTableRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertToTableResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isValueInDB">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isValueInDBRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isValueInDBResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getHighestValueInDB">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getHighestValueInDBRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getHighestValueInDBResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNetworkAddress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNetworkAddressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNetworkAddressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setNetworkAddress">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setNetworkAddressRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setNetworkAddressResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FilmDAOService">
+
+      <wsdl:port binding="impl:FilmDAOSoapBinding" name="FilmDAO">
+
+         <wsdlsoap:address location="http://localhost:8080/EnterpriseProgramming/services/FilmDAO"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
